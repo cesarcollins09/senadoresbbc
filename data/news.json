@@ -1,0 +1,52 @@
+{
+  "news": [
+    {
+      "id": "winter",
+      "category": "equipo",
+      "label": "EL EQUIPO",
+      "date": "12 OCT 2026",
+      "image": "/assets/news-winter.jpg",
+      "alt": "Jugadores del béisbol venezolano en la información oficial de la Liga Mayor",
+      "title": "El talento de Senadores también se hace sentir en invierno",
+      "summary": "Peloteros del Senado figuran entre los jugadores de la Liga Mayor incluidos en los rosters inaugurales de la LVBP.",
+      "paragraphs": [
+        "Francisco Rentería, Pedro Martínez y Yojhan Quevedo son algunos de los integrantes de Senadores que aparecen en el reporte de rosters inaugurales del circuito invernal.",
+        "La Liga Mayor informó que más de 50 jugadores de su circuito fueron incluidos en los equipos de la LVBP. Consulta la nota original para ver el listado completo."
+      ],
+      "sourceTitle": "Más de 50 jugadores de la Liga Mayor hacen roster inaugural en la LVBP",
+      "url": "https://www.lmbp.net/noticia/mas-de-50-jugadores-de-la-liga-mayor-hacen-roster-inaugural-en-la-lvbp"
+    },
+    {
+      "id": "collective",
+      "category": "liga",
+      "label": "LA LIGA",
+      "date": "17 SEP 2026",
+      "image": "/assets/news-collective.jpg",
+      "alt": "Béisbol de la Liga Mayor en la temporada 2026",
+      "title": "Una ofensiva que dejó su marca en la temporada 2026",
+      "summary": "Senadores lideró el circuito con 325 boletos y se ubicó segundo con 393 carreras anotadas.",
+      "paragraphs": [
+        "El balance colectivo de la Liga Mayor destaca la disciplina y producción ofensiva de Caracas en 2026.",
+        "Además del liderato en boletos y el segundo lugar en carreras, Senadores registró promedio de bateo de .306 y 571 imparables. Los números corresponden al resumen de la temporada publicado por la liga."
+      ],
+      "sourceTitle": "Líderes colectivos de la temporada 2026",
+      "url": "https://www.lmbp.net/noticia/lideres-colectivos-de-la-temporada-2026"
+    },
+    {
+      "id": "offense",
+      "category": "equipo",
+      "label": "EL EQUIPO",
+      "date": "10 SEP 2026",
+      "image": "/assets/news-offense.jpg",
+      "alt": "Peloteros destacados en el reporte ofensivo de la Liga Mayor",
+      "title": "Martínez y Alonso, entre los protagonistas del año",
+      "summary": "Pedro Martínez compartió la cima en dobles; Lázaro Alonso encabezó los boletos de la liga.",
+      "paragraphs": [
+        "Pedro Martínez cerró con 17 dobles para compartir el primer lugar del circuito en ese departamento. Su promedio de bateo fue de .392.",
+        "Lázaro Alonso terminó como líder en boletos con 63 y anotó 52 carreras. Ambos forman parte de los destacados de Senadores en el reporte ofensivo de la campaña 2026."
+      ],
+      "sourceTitle": "Líderes ofensivos de la temporada 2026",
+      "url": "https://www.lmbp.net/noticia/lideres-ofensivos-de-la-temporada-2026"
+    }
+  ]
+}

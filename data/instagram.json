@@ -1,0 +1,78 @@
+{
+  "profile": "https://www.instagram.com/senadores_bbc/",
+  "fetchedAt": "2026-10-31",
+  "assets": [
+    {
+      "id": "felix-doubront-cumpleanos",
+      "date": "2026-10-23",
+      "postUrl": "https://www.instagram.com/senadores_bbc/p/De2OskQuSAk/",
+      "alt": "Arte de cumpleaños de Félix Doubront con uniforme de Senadores de Caracas.",
+      "kind": "post",
+      "width": 513,
+      "height": 640,
+      "credit": "Instagram · @senadores_bbc",
+      "image": "/assets/instagram/felix-doubront-cumpleanos.jpg",
+      "title": "Félix Doubront, de celebración"
+    },
+    {
+      "id": "octubre-rosa",
+      "date": "2026-10-19",
+      "postUrl": "https://www.instagram.com/senadores_bbc/p/DesCMo5hfn5/",
+      "alt": "Casco, guante, pelota y bate rosa sobre el terreno del estadio.",
+      "kind": "post",
+      "width": 513,
+      "height": 640,
+      "credit": "Instagram · @senadores_bbc",
+      "image": "/assets/instagram/octubre-rosa.jpg",
+      "title": "Senadores se suma al Octubre Rosa"
+    },
+    {
+      "id": "reel-bateo-14-octubre",
+      "date": "2026-10-14",
+      "postUrl": "https://www.instagram.com/senadores_bbc/reel/DefU7XLA9Xv/",
+      "alt": "Miniatura de video con bateador y receptor durante un partido.",
+      "kind": "reel",
+      "width": 360,
+      "height": 640,
+      "credit": "Instagram · @senadores_bbc",
+      "image": "/assets/instagram/reel-bateo-14-octubre.jpg",
+      "title": "Acción de bateo en el diamante"
+    },
+    {
+      "id": "camilo-gutierrez-cumpleanos",
+      "date": "2026-10-13",
+      "postUrl": "https://www.instagram.com/senadores_bbc/p/DedK4YSjqHZ/",
+      "alt": "Arte de cumpleaños de Camilo Gutiérrez con gorra y uniforme del equipo.",
+      "kind": "post",
+      "width": 512,
+      "height": 640,
+      "credit": "Instagram · @senadores_bbc",
+      "image": "/assets/instagram/camilo-gutierrez-cumpleanos.jpg",
+      "title": "Un saludo para Camilo Gutiérrez"
+    },
+    {
+      "id": "reel-celebracion-12-octubre",
+      "date": "2026-10-12",
+      "postUrl": "https://www.instagram.com/senadores_bbc/reel/DeaeV4kNJRl/",
+      "alt": "Miniatura de video con dos jugadores celebrando sobre el diamante.",
+      "kind": "reel",
+      "width": 360,
+      "height": 640,
+      "credit": "Instagram · @senadores_bbc",
+      "image": "/assets/instagram/reel-celebracion-12-octubre.jpg",
+      "title": "La emoción se comparte"
+    },
+    {
+      "id": "robert-castillo-cumpleanos",
+      "date": "2026-10-07",
+      "postUrl": "https://www.instagram.com/senadores_bbc/p/DeMtEWRxGtc/",
+      "alt": "Arte de cumpleaños de Robert Castillo con chaqueta azul de Senadores.",
+      "kind": "post",
+      "width": 512,
+      "height": 640,
+      "credit": "Instagram · @senadores_bbc",
+      "image": "/assets/instagram/robert-castillo-cumpleanos.jpg",
+      "title": "Robert Castillo, de cumpleaños"
+    }
+  ]
+}

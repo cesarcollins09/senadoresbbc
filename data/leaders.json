@@ -1,0 +1,112 @@
+{
+  "season": 2026,
+  "scope": "Ronda regular",
+  "teamId": 10032,
+  "sourceUrl": "https://www.lmbp.net/equipo/senadores/estadisticas",
+  "fetchedAt": "2026-10-31T17:28:55.856051+00:00",
+  "qualificationNote": "AVG: líder entre los bateadores calificados por LMBP. Las demás categorías son acumulativas.",
+  "departments": [
+    {
+      "id": "hitting",
+      "title": "Ofensiva",
+      "leaders": [
+        {
+          "key": "avg",
+          "label": "Promedio de bateo",
+          "abbr": "AVG",
+          "value": ".392",
+          "players": [
+            {
+              "id": 11221,
+              "name": "Pedro Miguel Martinez Henrriquez",
+              "displayName": "Pedro Martínez",
+              "profileUrl": "https://www.lmbp.net/jugador/11221/pedro-martinez",
+              "photo": "/assets/players/11221.webp"
+            }
+          ]
+        },
+        {
+          "key": "homeRuns",
+          "label": "Jonrones",
+          "abbr": "HR",
+          "value": "10",
+          "players": [
+            {
+              "id": 11363,
+              "name": "Lazaro Alonso",
+              "displayName": "Lázaro Alonso",
+              "profileUrl": "https://www.lmbp.net/jugador/11363/lazaro-alonso",
+              "photo": "/assets/players/11363.webp"
+            }
+          ]
+        },
+        {
+          "key": "rbi",
+          "label": "Carreras impulsadas",
+          "abbr": "CI",
+          "value": "42",
+          "players": [
+            {
+              "id": 11216,
+              "name": "Anthony De Jesus Jimenez Pedroza",
+              "displayName": "Anthony Jiménez",
+              "profileUrl": "https://www.lmbp.net/jugador/11216/anthony-jimenez",
+              "photo": "/assets/players/11216.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pitching",
+      "title": "Pitcheo",
+      "leaders": [
+        {
+          "key": "wins",
+          "label": "Victorias",
+          "abbr": "G",
+          "value": "4",
+          "players": [
+            {
+              "id": 11201,
+              "name": "Carlos Manuel Contreras Abreu",
+              "displayName": "Carlos Contreras",
+              "profileUrl": "https://www.lmbp.net/jugador/11201/carlos-contreras",
+              "photo": "/assets/players/11201.webp"
+            }
+          ]
+        },
+        {
+          "key": "strikeOuts",
+          "label": "Ponches",
+          "abbr": "K",
+          "value": "42",
+          "players": [
+            {
+              "id": 11201,
+              "name": "Carlos Manuel Contreras Abreu",
+              "displayName": "Carlos Contreras",
+              "profileUrl": "https://www.lmbp.net/jugador/11201/carlos-contreras",
+              "photo": "/assets/players/11201.webp"
+            }
+          ]
+        },
+        {
+          "key": "saves",
+          "label": "Juegos salvados",
+          "abbr": "SV",
+          "value": "6",
+          "players": [
+            {
+              "id": 11210,
+              "name": "Mayckol Martin Guaipe Vicent",
+              "displayName": "Mayckol Guaipe",
+              "profileUrl": "https://www.lmbp.net/jugador/11210/mayckol-guaipe",
+              "photo": "/assets/players/11210.webp"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
