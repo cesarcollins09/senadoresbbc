@@ -1,0 +1,85 @@
+/* Páginas independientes, una portada editorial y orientación por sección. */
+.page-banner {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #829bb32e;
+  background-image: var(--grain), repeating-linear-gradient(120deg, transparent 0 28px, #ffffff03 28px 29px), linear-gradient(110deg, #173452, #0a1a31 65%, #58172d);
+}
+.page-banner::after { content: ''; position: absolute; inset: auto 0 0; height: 4px; background: linear-gradient(90deg, #e42c50 0 18%, transparent 18%); }
+.breadcrumb { display: inline-flex; align-items: center; gap: 12px; color: #b9c9da; font-size: 12px; padding-top: 27px; }
+.breadcrumb > span:not([aria-current]) { color: #f2617d; }
+.breadcrumb a:hover { color: white; }
+.page-title-row { min-height: 216px; padding: 27px 0 38px; display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+.page-title-row .eyebrow { color: #ff9aaf; }
+.page-title-row h1 { font-family: var(--body); font-weight: 500; font-size: clamp(35px, 3.8vw, 52px); letter-spacing: -.035em; line-height: 1.08; margin: 14px 0; }
+.page-title-row p { color: #c5d0dc; line-height: 1.65; font-size: 16px; max-width: 650px; margin: 0; }
+.page-title-row > img { width: 135px; height: 135px; opacity: .2; transform: rotate(-8deg); flex-shrink: 0; filter: grayscale(1) brightness(4); }
+.section-nav { background: #071529b3; border-bottom: 1px solid #829bb32e; }
+.section-nav > .wrap { display: flex; gap: 30px; overflow-x: auto; }
+.section-nav a { color: #afc0d4; padding: 19px 0 17px; font-size: 14px; white-space: nowrap; border-bottom: 3px solid transparent; }
+.section-nav a:hover, .section-nav a.selected { color: #fff; border-bottom-color: #ed3659; }
+.nav-inner nav > .nav-ticket.active { color: white; outline: 1px solid #ff92a7; outline-offset: 3px; }
+body:not([data-page="inicio"]) .calendar-section,
+body:not([data-page="inicio"]) .roster-section,
+body:not([data-page="inicio"]) .social-section { padding-top: 42px; padding-bottom: 55px; }
+body[data-page="historia"] .heritage { margin-top: 0; }
+.history-photo { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; padding-top: 50px; padding-bottom: 60px; }
+.history-photo > img { width: 100%; aspect-ratio: 1.78; object-fit: cover; border: 1px solid #a2b8ce40; box-shadow: 8px 8px 0 #d5254540; }
+.history-photo h2, .ticket-panel h2 { font: 500 34px/1.15 var(--body); letter-spacing: -.035em; margin: 15px 0; }
+.history-photo p, .ticket-panel p { color: #b9c8da; font-size: 15px; line-height: 1.75; margin-bottom: 24px; }
+.ticket-section { padding-top: 40px; }
+.ticket-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 45px; padding: 30px 34px; background: linear-gradient(110deg, #183450, #10233d); border: 1px solid #7895b045; border-left: 4px solid #ed3659; box-shadow: 0 14px 30px #0003; }
+.ticket-panel p { max-width: 680px; margin-bottom: 0; }
+.ticket-panel .button { gap: 20px; }
+body[data-page="entradas"] .stadium-section { padding-top: 45px; padding-bottom: 55px; }
+.home-news { padding-top: 46px; padding-bottom: 55px; }
+.home-news .news-grid { margin-top: 25px; }
+.home-news .news-card p { display: none; }
+.home-news .news-card h3 { font-size: 22px; }
+.home-news .news-card > .text-link { margin-top: 20px; }
+@media (max-width: 850px) {
+  .page-title-row > img { width: 100px; height: 100px; }
+  .page-title-row { min-height: 200px; }
+  .history-photo { gap: 28px; }
+  .history-photo h2, .ticket-panel h2 { font-size: 29px; }
+  .ticket-panel { grid-template-columns: 1fr; gap: 25px; }
+  .ticket-panel .button { justify-self: start; }
+}
+@media (max-width: 600px) {
+  .breadcrumb { padding-top: 20px; font-size: 11px; }
+  .page-title-row { min-height: 210px; padding: 25px 0 30px; }
+  .page-title-row h1 { font-size: 35px; max-width: 330px; }
+  .page-title-row p { font-size: 14px; max-width: 320px; }
+  .page-title-row > img { position: absolute; right: -22px; width: 140px; height: 140px; opacity: .07; pointer-events: none; }
+  .section-nav > .wrap { gap: 25px; }
+  .section-nav a { font-size: 13px; padding-top: 16px; padding-bottom: 14px; }
+  body:not([data-page="inicio"]) .calendar-section,
+  body:not([data-page="inicio"]) .roster-section,
+  body:not([data-page="inicio"]) .social-section { padding-top: 31px; padding-bottom: 37px; }
+  .history-photo { grid-template-columns: 1fr; padding-top: 35px; padding-bottom: 40px; gap: 32px; }
+  .ticket-section { padding-top: 27px; }
+  .ticket-panel { padding: 24px 20px; }
+  .ticket-panel h2 { font-size: 29px; }
+  .ticket-panel p { font-size: 14px; }
+  .ticket-panel .button { font-size: 12px; padding: 15px 16px; }
+  body[data-page="inicio"] .hero-side { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  body[data-page="inicio"] .feature-photo { display: none; }
+  body[data-page="inicio"] .feature-copy { padding: 20px 15px; }
+  body[data-page="inicio"] .feature-copy .eyebrow, body[data-page="inicio"] .champion-card .eyebrow { font-size: 7px; line-height: 1.6; }
+  body[data-page="inicio"] .feature-copy h2 { font-size: 18px; margin: 13px 0 17px; }
+  body[data-page="inicio"] .feature-copy .text-link { font-size: 10px; }
+  body[data-page="inicio"] .champion-card { padding: 20px 14px; }
+  body[data-page="inicio"] .champion-card h2 { font-size: 29px; margin-top: 13px; }
+  body[data-page="inicio"] .champion-card h2 > span { font-size: 11px; }
+  body[data-page="inicio"] .champion-years { gap: 8px; flex-wrap: wrap; font-size: 8px; margin-top: 14px; }
+  body[data-page="inicio"] .champion-card > .icon { display: none; }
+  .home-news { padding-top: 31px; padding-bottom: 33px; }
+  .home-news .section-heading h2 { font-size: 27px; }
+  .home-news .news-grid { gap: 12px; }
+  .home-news .news-card { display: grid; grid-template-columns: 106px 1fr; grid-template-rows: auto auto 1fr; column-gap: 15px; padding: 0; text-align: left; }
+  .home-news .news-image { grid-row: 1/4; height: 100%; min-height: 130px; aspect-ratio: auto; }
+  .home-news .news-category { display: none; }
+  .home-news .news-date { margin: 16px 14px 8px 0; font-size: 8px; }
+  .home-news .news-card h3 { font-size: 17px; line-height: 1.3; margin: 0 12px 9px 0; }
+  .home-news .news-card > .text-link { margin: 0 14px 14px 0; padding: 0; border: 0; font-size: 10px; }
+}

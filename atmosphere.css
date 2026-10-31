@@ -1,0 +1,436 @@
+/* Senadores: luz de estadio, tela deportiva y capas editoriales. */
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('assets/barlow-condensed-600.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url('assets/barlow-500.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: Barlow;
+  src: url('assets/barlow-600.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+:root {
+  --night: #040e20;
+  --surface: #102744;
+  --paper: #f4f0e9;
+  --silver: #b5c2d5;
+  --bright-red: #ff6c85;
+  --dark-line: rgba(180, 202, 232, .17);
+  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' opacity='.13' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+body {
+  background-color: var(--night);
+  background-image: var(--grain), radial-gradient(ellipse at 10% 7%, #183659 0, transparent 39%), radial-gradient(ellipse at 95% 30%, #47132966 0, transparent 32%);
+  background-size: 180px 180px, 100% 100%, 100% 100%;
+  color: var(--paper);
+}
+::selection { background: #e02349; color: white; }
+.skip { color: var(--navy); }
+.utility { background: #030b18; color: #aabbd0; border-bottom: 1px solid #ffffff0a; }
+.header {
+  background-color: #08182e;
+  background-image: repeating-linear-gradient(115deg, transparent 0 22px, #ffffff02 22px 23px), linear-gradient(100deg, #102a48, #071427 70%);
+  border-bottom: 1px solid #ffffff1a;
+  box-shadow: 0 10px 28px #00000038;
+}
+.header .brand { color: var(--paper); }
+.header .brand img { filter: drop-shadow(0 4px 7px #0006); }
+.nav-inner nav > a.active { color: #ff7188; }
+.nav-inner nav > a:not(.button):after,
+.nav-inner nav > button:not(.button):after { background: #f33358; height: 4px; }
+.nav-ticket {
+  background-image: linear-gradient(125deg, #e3264b, #ab0e30);
+  box-shadow: 0 5px 20px #c5103540, inset 0 1px #ffffff29;
+  border: 1px solid #f34d6b5c;
+}
+.nav-ticket:hover { box-shadow: 0 7px 28px #e0234959; }
+.season-bar {
+  background-color: #951330;
+  background-image: repeating-linear-gradient(120deg, transparent 0 10px, #ffffff04 10px 11px), linear-gradient(100deg, #b8173b, #76152e);
+  border-bottom: 1px solid #f6577355;
+}
+.status-dot { background: #fff; box-shadow: 0 0 12px #ffb8c5; }
+.season-note { color: #f6d5de; border-left-color: #ffffff30; }
+.season-inner > button { color: white; }
+.front-page { padding-top: 32px; position: relative; }
+.hero-grid { gap: 22px; }
+.hero {
+  border: 1px solid #6884a257;
+  border-bottom: 4px solid #e51d45;
+  box-shadow: 0 20px 45px #0006, -6px 0 0 #c51035;
+  isolation: isolate;
+}
+.hero:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .23;
+  background-image: var(--grain);
+}
+.hero-shade { background: linear-gradient(0deg, #020b1cf7, #05112a3b 77%), linear-gradient(90deg, #06162e77, transparent 70%); }
+.hero-top, .hero-copy, .photo-credit { z-index: 2; }
+.hero h1 { text-shadow: 0 6px 25px #0006; }
+.hero h1 > span { color: #ff3b61; }
+.hero-top .eyebrow { border-left: 3px solid #ef3558; padding-left: 10px; }
+.mini-label span { background: #ff4569; box-shadow: 0 0 13px #ff456970; }
+.hero-copy .button { box-shadow: 5px 5px 0 #d11b3e; }
+.hero-copy .button:hover { box-shadow: 8px 8px 0 #d11b3e; }
+.feature-story {
+  background-color: #a71435;
+  background-image: var(--grain), linear-gradient(130deg, #c22245, #80152e);
+  border: 1px solid #f2728a70;
+  box-shadow: 0 14px 28px #0005;
+  transition: transform .3s, box-shadow .3s;
+}
+.feature-story:hover { transform: translateY(-4px); box-shadow: 0 20px 32px #0007; }
+.feature-photo { border-bottom: 1px solid #ffffff26; }
+.feature-copy .red-text { color: #ffe8ee; }
+.feature-copy h2 { color: white; }
+.feature-copy .text-link { color: #fff5f7; }
+.feature-photo .tag { background: var(--paper); color: #a01736; }
+.champion-card {
+  background-color: #102b4d;
+  background-image: repeating-linear-gradient(125deg, transparent 0 7px, #ffffff03 7px 8px), radial-gradient(at 100% 0, #2e4b6a, transparent 70%);
+  border: 1px solid #6684a153;
+  box-shadow: 0 12px 24px #0005;
+  transition: transform .3s, border-color .3s;
+}
+.champion-card:hover { transform: translateY(-4px); border-color: #f5426490; }
+.champion-card:before { color: #ffffff08; }
+.champion-card h2 { text-shadow: 0 3px 14px #0004; }
+.champion-years span::first-letter { color: #ff6c85; }
+.quicklinks {
+  border: 1px solid #7891ae40;
+  background: linear-gradient(120deg, #183552d9, #0c203ad9);
+  box-shadow: 0 12px 30px #0004, inset 0 1px #ffffff08;
+  padding: 0;
+  margin-top: 25px;
+}
+.quicklinks > a, .quicklinks > button {
+  padding: 24px 20px !important;
+  border-right-color: #bed6f222;
+  transition: background .25s;
+  position: relative;
+}
+.quicklinks > a:before, .quicklinks > button:before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: #ff355c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s;
+}
+.quicklinks > a:hover, .quicklinks > button:hover { background: #cf1a3d25; }
+.quicklinks > a:hover:before, .quicklinks > button:hover:before { transform: scaleX(1); }
+.quicklinks .quick-icon { color: #ff6c85; }
+.quicklinks small { color: #acbdd2; }
+.quicklinks a:hover strong, .quicklinks button:hover strong { color: #fff; }
+.energy-ribbon {
+  overflow: hidden;
+  background-color: #c01338;
+  background-image: var(--grain), repeating-linear-gradient(125deg, transparent 0 25px, #0000000c 25px 27px);
+  border-top: 1px solid #ff6d864d;
+  border-bottom: 1px solid #ff6d864d;
+  box-shadow: 0 9px 24px #0004;
+  margin-top: 44px;
+  color: #fff3f4;
+}
+.ribbon-track { display: flex; width: max-content; }
+.ribbon-track > span { flex-shrink: 0; padding: 15px 0; font: 800 24px/1 var(--display); letter-spacing: 1.1px; white-space: nowrap; }
+.ribbon-track b { color: #071a34; font-size: 15px; padding: 0 30px; vertical-align: 2px; }
+main .red-text { color: var(--bright-red); }
+.news-section { padding-top: 59px; padding-bottom: 64px; }
+.section-heading h2 { color: var(--paper); font-size: 43px; }
+.section-heading > div { border-left: 4px solid #e82b50; padding-left: 17px; }
+.section-heading > .text-link { color: #d4dfec; }
+.news-toolbar { border-bottom-color: #ffffff20; }
+.news-toolbar > span { color: #b3c0d1; }
+.filters button { color: #bac9dc; }
+.filters .selected { color: #ff8197; }
+.filters .selected:after { background: #f4355a; }
+.news-grid { align-items: stretch; gap: 24px; }
+.news-card {
+  align-self: stretch;
+  background: linear-gradient(145deg, #17304d, #0c1d34);
+  border: 1px solid #89a1bc30;
+  box-shadow: 0 14px 28px #0004;
+  padding-bottom: 24px;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+.news-card:hover { transform: translateY(-7px); border-color: #ff55716b; box-shadow: 0 20px 35px #0006; }
+.news-image { border-bottom: 3px solid #b91436; }
+.news-date, .news-card h3, .news-card p, .news-card > .text-link { margin-left: 23px; margin-right: 23px; }
+.news-date { margin-top: 21px; color: #b0c2d9; }
+.news-card h3 { color: #f5f1eb; }
+.news-card:hover h3 { color: #ffadb9; }
+.news-card p { color: #b6c6d9; }
+.news-card > .text-link { margin-top: auto; padding-top: 19px; color: #f3f4f6; }
+.news-source { color: #99aec9; }
+.heritage {
+  background-color: #9c1637;
+  background-image: var(--grain), repeating-linear-gradient(120deg, transparent 0 65px, #ffffff04 65px 66px), radial-gradient(ellipse at 20% 30%, #cd2851, transparent 63%), linear-gradient(110deg, #a9183b, #59162c);
+  border-top: 1px solid #ff637c60;
+  border-bottom: 1px solid #ff637c40;
+  box-shadow: 0 15px 35px #0003;
+}
+.heritage:before {
+  content: 'CARACAS';
+  position: absolute;
+  left: -15px;
+  bottom: -36px;
+  font: 800 clamp(140px, 21vw, 320px)/1 var(--display);
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff12;
+  pointer-events: none;
+}
+.heritage-inner { position: relative; padding-top: 65px; padding-bottom: 65px; }
+.heritage-intro .eyebrow { color: #ffd0dc; }
+.heritage-intro h2 { font-size: 59px; }
+.heritage-intro h2 em { color: transparent; -webkit-text-stroke: 1px #fff1f4; }
+.heritage-intro p { color: #f2c9d5; }
+.trophy-wall {
+  padding: 34px;
+  background: linear-gradient(135deg, #2b10275e, #080e2357);
+  border: 1px solid #ffffff26;
+  box-shadow: 12px 12px 0 #330d242b, inset 0 1px #ffffff12;
+}
+.trophy-top > span:last-child { color: #f4c7d4; }
+.title-years span { color: #ffd1dd; text-shadow: 0 2px 12px #f2678e5e; }
+.title-years small { color: #f2c7d4; }
+.team-section { position: relative; gap: 74px; padding-top: 85px; padding-bottom: 89px; }
+.team-image { overflow: visible; }
+.team-image:before {
+  content: '';
+  position: absolute;
+  inset: 14px -12px -12px 14px;
+  background: repeating-linear-gradient(135deg, #d51a4066 0 1px, transparent 1px 6px);
+  border: 1px solid #f4486766;
+  z-index: 0;
+}
+.team-image > img { position: relative; z-index: 1; box-shadow: 0 16px 35px #0005; }
+.team-image:after { z-index: 2; }
+.team-image .image-label { z-index: 3; }
+.team-copy h2 { color: var(--paper); }
+.team-copy p { color: #b4c4d8; }
+main .button.navy { background-image: linear-gradient(120deg, #dd2549, #aa1435); border: 1px solid #f7577770; box-shadow: 0 7px 19px #b30b2f29; }
+main .button.navy:hover { background-color: #d22448; }
+.team-copy .stats-link { color: #d3deec; }
+.video-section {
+  position: relative;
+  background-color: #112946;
+  background-image: var(--grain), repeating-linear-gradient(0deg, transparent 0 4px, #00000008 4px 5px), linear-gradient(120deg, #133152, #07182f);
+  border-top: 1px solid #5b7b9c66;
+  border-bottom: 1px solid #5b7b9c55;
+  box-shadow: inset 0 30px 70px #020b1b38;
+  padding-top: 61px;
+  padding-bottom: 64px;
+}
+.video-card { padding-bottom: 20px; background: #07172d70; border: 1px solid #7996b83b; box-shadow: 0 12px 22px #0003; transition: transform .3s; }
+.video-card:hover { transform: translateY(-5px); }
+.video-image { border-bottom: 3px solid #d32a4b; }
+.video-meta { color: #b2c4db; margin-left: 21px; margin-right: 21px; }
+.video-card h3 { margin-left: 21px; margin-right: 21px; color: #f7f1ea; }
+.play-circle { box-shadow: 0 0 0 10px #ffffff1c, 0 9px 25px #0005; }
+.stadium-section { padding-top: 84px; padding-bottom: 84px; }
+.stadium-graphic { border: 1px solid #7896b157; border-bottom: 4px solid #d32143; box-shadow: 0 15px 40px #0005; }
+.stadium-photo { opacity: .65; }
+.stadium-copy h2 { color: var(--paper); }
+.stadium-copy p { color: #b4c4d8; }
+.location small { color: #9db3cd; }
+.location .icon { color: #ff758e; }
+main .button.outline { border-color: #afc2db66; color: #eef0f4; background: #2c46633d; }
+main .button.outline:hover { background: #b9183c; border-color: #f33459; }
+.stadium-actions > .text-link { color: #d7e1ef; }
+.fan-strip {
+  background-image: var(--grain), repeating-linear-gradient(120deg, transparent 0 36px, #ffffff05 36px 37px), linear-gradient(100deg, #c21b3f, #97102f);
+  border-top: 1px solid #ff879b66;
+  border-bottom: 1px solid #ff879b44;
+  box-shadow: 0 12px 30px #0003;
+}
+.fan-inner { padding-top: 38px; padding-bottom: 38px; }
+.fan-inner .eyebrow { opacity: 1; }
+.fan-inner .button { box-shadow: 5px 5px 0 #6d102b; }
+footer { background-color: #030b19; background-image: var(--grain); }
+.footer-main { padding-top: 51px; }
+.footer-bottom { border-top-color: #829bb426; }
+/* Diálogos claros dentro del ambiente oscuro. */
+dialog { background: #f7f5f1; color: var(--ink); border: 1px solid #f9fbff; box-shadow: 0 35px 130px #000b; }
+dialog::backdrop { background: #02091cd4; }
+.dialog-close { background: #f7f5f1; }
+.dialog-body .calendar-state { background: #eceef2; }
+.dialog-image { border-bottom: 4px solid #c51035; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo { animation: stadium-drift 22s ease-in-out infinite alternate; }
+  .hero-copy { animation: headline-arrival .8s ease-out both; }
+  .ribbon-track { animation: club-ribbon 36s linear infinite; }
+  .energy-ribbon:hover .ribbon-track { animation-play-state: paused; }
+  .motion-reveal { transform: translateY(15px); transition: transform .7s cubic-bezier(.2,.7,.3,1); }
+  .motion-reveal.is-revealed { transform: translateY(0); }
+  @keyframes stadium-drift { from { transform: scale(1.015); } to { transform: scale(1.075) translateX(-.7%); } }
+  @keyframes headline-arrival { from { transform: translateY(18px); opacity: .6; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes club-ribbon { to { transform: translateX(-50%); } }
+}
+@media (max-width: 1150px) {
+  .quicklinks > a, .quicklinks > button { padding: 22px 15px !important; gap: 10px; }
+  .quicklinks strong { font-size: 13px; }
+  .quicklinks small { font-size: 10px; }
+  .trophy-wall { padding: 26px; }
+  .heritage-inner { gap: 40px; }
+  .heritage-intro h2 { font-size: 52px; }
+  .trophy-number { font-size: 130px; }
+  .team-section { gap: 45px; }
+}
+@media (max-width: 850px) {
+  .menu-toggle span { background: #f4f0e9; }
+  .nav-inner nav { background: #0c2039; border-bottom: 2px solid #cc1b3d; box-shadow: 0 20px 25px #0008; }
+  .nav-inner nav > a, .nav-inner nav > button { color: var(--paper); }
+  .nav-inner nav > a.active { color: #ff8ba0; }
+  .quicklinks > a, .quicklinks > button { padding: 21px 18px !important; border-bottom-color: #bed6f222; }
+  .quicklinks strong { font-size: 14px; }
+  .quicklinks small { font-size: 11px; }
+  .quicklinks > :nth-child(odd) { padding-left: 18px !important; }
+  .energy-ribbon { margin-top: 34px; }
+  .ribbon-track > span { font-size: 21px; padding-top: 13px; padding-bottom: 13px; }
+  .ribbon-track b { padding: 0 22px; }
+  .section-heading h2 { font-size: 35px; }
+  .news-date, .news-card h3, .news-card p, .news-card > .text-link { margin-left: 16px; margin-right: 16px; }
+  .news-card h3 { font-size: 24px; }
+  .trophy-wall { padding: 23px; }
+  .heritage-inner { grid-template-columns: 1fr 1.15fr; gap: 25px; padding-top: 47px; padding-bottom: 47px; }
+  .heritage-intro h2 { font-size: 43px; }
+  .trophy-top { flex-direction: column; align-items: flex-start; gap: 15px; }
+  .trophy-top > span:last-child { max-width: none; }
+  .trophy-top > span:last-child::first-line { font-size: 22px; }
+  .title-years strong { font-size: 34px; }
+  .title-years small { font-size: 6px; letter-spacing: .2px; }
+  .team-section, .stadium-section { padding-top: 58px; padding-bottom: 58px; gap: 36px; }
+  .team-copy h2 { font-size: 36px; }
+  .video-section { padding-top: 47px; padding-bottom: 47px; }
+}
+@media (max-width: 600px) {
+  .front-page { padding-top: 24px; }
+  .hero { box-shadow: 0 15px 35px #0006, -4px 0 #c51035; }
+  .hero-grid { gap: 17px; }
+  .feature-story { box-shadow: 0 10px 20px #0004; }
+  .feature-copy { padding: 20px 16px; }
+  .hero-copy .button { box-shadow: 4px 4px 0 #d11b3e; }
+  .quicklinks > a, .quicklinks > button { padding: 18px 12px !important; gap: 9px; }
+  .quicklinks > :nth-child(odd) { padding-left: 12px !important; }
+  .quicklinks > :nth-child(even) { padding-right: 12px !important; }
+  .quicklinks strong { font-size: 12px; }
+  .quicklinks small { font-size: 9px; }
+  .quicklinks .quick-icon { width: 20px; height: 20px; }
+  .quicklinks .icon:last-child { width: 12px; }
+  .energy-ribbon { margin-top: 29px; }
+  .ribbon-track > span { font-size: 19px; padding-top: 13px; padding-bottom: 13px; }
+  .ribbon-track b { font-size: 12px; padding: 0 18px; }
+  .news-section { padding-top: 41px; padding-bottom: 43px; }
+  .section-heading > div { padding-left: 13px; border-left-width: 3px; }
+  .section-heading h2 { font-size: 33px; }
+  .section-heading > .text-link { margin-left: 16px; }
+  .news-grid { gap: 24px; }
+  .news-card { padding-bottom: 22px; }
+  .news-date, .news-card h3, .news-card p, .news-card > .text-link { margin-left: 21px; margin-right: 21px; }
+  .news-card h3 { font-size: 29px; }
+  .news-card p { font-size: 14px; }
+  .news-card > .text-link { padding-top: 17px; }
+  .heritage-inner { grid-template-columns: 1fr; padding: 43px 2px 47px; gap: 31px; }
+  .heritage-intro h2 { font-size: 57px; }
+  .heritage-intro h2 br:nth-child(2) { display: initial; }
+  .trophy-wall { padding: 25px 23px; box-shadow: 7px 7px 0 #330d242b; }
+  .trophy-top { flex-direction: row; align-items: center; gap: 22px; }
+  .trophy-number { font-size: 119px; }
+  .trophy-top > span:last-child { font-size: 8px; }
+  .title-years strong { font-size: 38px; }
+  .title-years small { font-size: 6px; letter-spacing: .6px; }
+  .team-section { grid-template-columns: 1fr; padding-top: 45px; padding-bottom: 45px; gap: 40px; }
+  .team-image { margin-right: 9px; }
+  .team-image:before { inset: 10px -9px -10px 10px; }
+  .team-copy h2 { font-size: 42px; }
+  .video-section { padding-top: 42px; padding-bottom: 42px; }
+  .video-grid { gap: 24px; }
+  .video-card h3 { font-size: 27px; margin-left: 18px; margin-right: 18px; }
+  .video-meta { margin-left: 18px; margin-right: 18px; }
+  .stadium-section { padding-top: 45px; padding-bottom: 45px; grid-template-columns: 1fr; gap: 29px; }
+  .stadium-copy h2 { font-size: 39px; }
+  .fan-inner { padding-top: 32px; padding-bottom: 34px; }
+  .footer-main { padding-top: 35px; }
+}
+
+/* Jerarquía tipográfica más ligera y editorial. */
+h1, h2, h3 { font-weight: 600; letter-spacing: -.015em; }
+.brand > span, .brand small { font-weight: 600; }
+.brand > span { letter-spacing: .7px; }
+.eyebrow { font-weight: 500; }
+.nav-inner nav > a:not(.button),
+.nav-inner nav > button:not(.button),
+.button, .text-link, .quicklinks strong { font-weight: 500; }
+.hero h1 { font-size: clamp(64px, 6.5vw, 96px); line-height: 1.01; letter-spacing: -.025em; }
+.feature-copy h2 { font-family: var(--body); font-weight: 500; font-size: 25px; line-height: 1.2; letter-spacing: -.025em; }
+.champion-card h2 { font-weight: 600; font-size: 36px; line-height: 1.05; letter-spacing: -.015em; }
+.champion-card h2 > span { font-family: var(--body); font-weight: 400; font-size: 13px; letter-spacing: .3px; line-height: 1.5; }
+.section-heading h2 { font-family: var(--body); font-size: 36px; font-weight: 500; line-height: 1.18; letter-spacing: -.035em; }
+.news-card h3 { font-family: var(--body); font-size: 24px; font-weight: 500; line-height: 1.25; letter-spacing: -.025em; text-wrap: pretty; }
+.ribbon-track > span { font-family: var(--body); font-size: 20px; font-weight: 500; letter-spacing: .25px; line-height: 1.2; }
+.heritage-intro h2 { font-size: 60px; font-weight: 600; line-height: 1.04; letter-spacing: -.02em; }
+.heritage-intro h2 em { -webkit-text-stroke: 0; color: #ffd0dc; font-weight: 600; }
+.trophy-number { font-weight: 600; letter-spacing: -4px; }
+.trophy-top > span:last-child::first-line { font-family: var(--body); font-size: 23px; font-weight: 500; }
+.title-years strong { font-weight: 600; }
+.team-copy h2 { font-size: 49px; font-weight: 600; line-height: 1.06; letter-spacing: -.02em; }
+.video-card h3 { font-family: var(--body); font-size: 24px; font-weight: 500; line-height: 1.26; letter-spacing: -.025em; }
+.stadium-graphic > strong { font-size: 56px; font-weight: 600; line-height: 1.04; letter-spacing: -.02em; }
+.stadium-copy h2 { font-size: 46px; font-weight: 600; line-height: 1.08; letter-spacing: -.02em; }
+.fan-inner h2 { font-size: 54px; font-weight: 600; line-height: 1.07; letter-spacing: -.02em; }
+.dialog-body h2, .calendar-state h3 { font-weight: 600; line-height: 1.12; }
+@media (max-width: 1150px) {
+  .feature-copy h2 { font-size: 23px; }
+  .section-heading h2 { font-size: 33px; }
+  .news-card h3 { font-size: 22px; }
+  .heritage-intro h2 { font-size: 53px; }
+  .team-copy h2 { font-size: 45px; }
+  .stadium-copy h2 { font-size: 40px; }
+  .video-card h3 { font-size: 23px; }
+}
+@media (max-width: 850px) {
+  .hero h1 { font-size: 62px; }
+  .feature-copy h2 { font-size: 21px; }
+  .section-heading h2 { font-size: 31px; }
+  .news-card h3 { font-size: 21px; }
+  .ribbon-track > span { font-size: 18px; }
+  .heritage-intro h2 { font-size: 46px; }
+  .team-copy h2 { font-size: 40px; }
+  .stadium-copy h2 { font-size: 37px; }
+  .video-card h3 { font-size: 22px; }
+  .fan-inner h2 { font-size: 45px; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: clamp(55px, 16vw, 65px); line-height: 1.03; }
+  .feature-copy h2 { font-size: 21px; line-height: 1.22; }
+  .champion-card h2 { font-size: 34px; }
+  .champion-card h2 > span { display: block; margin: 5px 0 0; font-size: 12px; }
+  .section-heading h2 { font-size: 29px; }
+  .news-card h3 { font-size: 25px; line-height: 1.25; }
+  .ribbon-track > span { font-size: 17px; }
+  .heritage-intro h2 { font-size: 57px; }
+  .team-copy h2 { font-size: 46px; }
+  .video-card h3 { font-size: 24px; }
+  .stadium-graphic > strong { font-size: 52px; }
+  .stadium-copy h2 { font-size: 42px; }
+  .fan-inner h2 { font-size: 47px; }
+}
