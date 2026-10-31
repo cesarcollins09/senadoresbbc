@@ -1,0 +1,827 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "cesarcollins09/senadoresbbc",
+    "branch": "main",
+    "base_url": "https://senadoresbbc-auth.cesar-collins09.workers.dev",
+    "auth_endpoint": "auth"
+  },
+  "site_url": "https://senadoresbbc.pages.dev",
+  "display_url": "https://senadoresbbc.pages.dev",
+  "logo_url": "https://senadoresbbc.pages.dev/assets/logo.png",
+  "locale": "es",
+  "publish_mode": "editorial_workflow",
+  "media_folder": "assets/uploads",
+  "public_folder": "/assets/uploads",
+  "collections": [
+    {
+      "name": "noticias",
+      "label": "Noticias",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "news",
+          "label": "Noticias",
+          "file": "data/news.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Noticias",
+              "name": "news",
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "Identificador",
+                  "name": "id",
+                  "widget": "string",
+                  "pattern": [
+                    "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "Usa letras minúsculas, números y guiones; debe ser único."
+                  ],
+                  "hint": "Identificador único y estable de esta noticia."
+                },
+                {
+                  "label": "Categoría",
+                  "name": "category",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "El equipo",
+                      "value": "equipo"
+                    },
+                    {
+                      "label": "La liga",
+                      "value": "liga"
+                    }
+                  ]
+                },
+                {
+                  "label": "Etiqueta visible",
+                  "name": "label",
+                  "widget": "string",
+                  "hint": "Por ejemplo: EL EQUIPO o LA LIGA."
+                },
+                {
+                  "label": "Fecha visible",
+                  "name": "date",
+                  "widget": "string",
+                  "hint": "Texto que verá el aficionado. Ejemplo: 31 OCT 2026."
+                },
+                {
+                  "label": "Imagen principal",
+                  "name": "image",
+                  "widget": "image",
+                  "hint": "Sube una imagen o selecciona una existente. Se guarda una ruta /assets/… ."
+                },
+                {
+                  "label": "Descripción de la imagen",
+                  "name": "alt",
+                  "widget": "string"
+                },
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Resumen",
+                  "name": "summary",
+                  "widget": "text"
+                },
+                {
+                  "label": "Párrafos",
+                  "name": "paragraphs",
+                  "widget": "list",
+                  "field": {
+                    "label": "Párrafo",
+                    "name": "paragraph",
+                    "widget": "text"
+                  },
+                  "min": 1
+                },
+                {
+                  "label": "Título de la publicación de origen",
+                  "name": "sourceTitle",
+                  "widget": "string"
+                },
+                {
+                  "label": "Enlace a la publicación original",
+                  "name": "url",
+                  "widget": "string",
+                  "pattern": [
+                    "^https://[^\\s]+$",
+                    "Usa un enlace HTTPS completo."
+                  ]
+                },
+                {
+                  "label": "Nombre de la fuente",
+                  "name": "sourceName",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "Opcional. Ejemplo: LMBP o Prensa Senadores. Si se omite, se muestra LMBP."
+                },
+                {
+                  "label": "Crédito de la imagen",
+                  "name": "imageCredit",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "Opcional. Identifica al fotógrafo o a la fuente de la imagen."
+                }
+              ],
+              "summary": "{{fields.title}}",
+              "collapsed": true,
+              "allow_add": true,
+              "allow_remove": true,
+              "allow_reorder": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "roster",
+      "label": "Roster",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "roster",
+          "label": "Roster",
+          "file": "data/roster.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Temporada",
+              "name": "season",
+              "widget": "number",
+              "value_type": "int",
+              "min": 2000,
+              "step": 1
+            },
+            {
+              "label": "Fecha de consulta",
+              "name": "fetchedAt",
+              "widget": "string",
+              "hint": "Fecha ISO de la consulta a la fuente. Conserva la hora y la zona si aparecen."
+            },
+            {
+              "label": "Fuente del roster",
+              "name": "sourceUrl",
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Usa un enlace HTTPS completo."
+              ]
+            },
+            {
+              "label": "Jugadores",
+              "name": "players",
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "ID oficial",
+                  "name": "id",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 0,
+                  "step": 1
+                },
+                {
+                  "label": "Nombre completo",
+                  "name": "name",
+                  "widget": "string"
+                },
+                {
+                  "label": "Nombre para mostrar",
+                  "name": "displayName",
+                  "widget": "string"
+                },
+                {
+                  "label": "Número de uniforme",
+                  "name": "number",
+                  "widget": "nullable-string",
+                  "required": false,
+                  "pattern": [
+                    "^\\d+$",
+                    "Usa dígitos. El 0 es un número válido."
+                  ],
+                  "hint": "Se guarda como texto para conservar 0. Vacío conserva null."
+                },
+                {
+                  "label": "Posición",
+                  "name": "position",
+                  "widget": "select",
+                  "options": [
+                    "P",
+                    "C",
+                    "IF",
+                    "OF",
+                    "C/IF"
+                  ]
+                },
+                {
+                  "label": "Nombre de la posición",
+                  "name": "positionLabel",
+                  "widget": "string"
+                },
+                {
+                  "label": "Lanza",
+                  "name": "throws",
+                  "widget": "select",
+                  "options": [
+                    "R",
+                    "L",
+                    "S"
+                  ],
+                  "hint": "R: derecha. L: izquierda. S: ambas."
+                },
+                {
+                  "label": "Batea",
+                  "name": "bats",
+                  "widget": "select",
+                  "options": [
+                    "R",
+                    "L",
+                    "S"
+                  ],
+                  "hint": "R: derecha. L: izquierda. S: ambidiestro."
+                },
+                {
+                  "label": "Fecha de nacimiento",
+                  "name": "birthdate",
+                  "widget": "nullable-string",
+                  "required": false,
+                  "pattern": [
+                    "^\\d{4}-\\d{2}-\\d{2}$",
+                    "Usa AAAA-MM-DD."
+                  ],
+                  "hint": "Formato AAAA-MM-DD. Vacío significa que la fuente no informa el dato."
+                },
+                {
+                  "label": "Perfil oficial",
+                  "name": "profileUrl",
+                  "widget": "string",
+                  "pattern": [
+                    "^https://[^\\s]+$",
+                    "Usa un enlace HTTPS completo."
+                  ]
+                },
+                {
+                  "label": "Retrato",
+                  "name": "photo",
+                  "widget": "image",
+                  "required": false,
+                  "hint": "Retrato opcional. Sube una foto o elige una imagen de Medios. Vacío conserva null si la fuente no tiene retrato."
+                }
+              ],
+              "summary": "{{fields.displayName}} · {{fields.position}}",
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calendario",
+      "label": "Calendario",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "calendar",
+          "label": "Calendario",
+          "file": "data/calendar.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Temporada",
+              "name": "season",
+              "widget": "number",
+              "value_type": "int",
+              "min": 2000,
+              "step": 1
+            },
+            {
+              "label": "Fuente del calendario",
+              "name": "sourceUrl",
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Usa un enlace HTTPS completo."
+              ]
+            },
+            {
+              "label": "Fecha de consulta",
+              "name": "fetchedAt",
+              "widget": "string",
+              "hint": "Fecha ISO de la consulta a la fuente. Conserva la hora y la zona si aparecen."
+            },
+            {
+              "label": "Próxima temporada",
+              "name": "nextSeason",
+              "widget": "number",
+              "value_type": "int",
+              "min": 0,
+              "step": 1
+            },
+            {
+              "label": "Próxima temporada publicada",
+              "name": "nextSeasonPublished",
+              "widget": "boolean",
+              "default": false
+            },
+            {
+              "label": "Juegos",
+              "name": "games",
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "ID oficial",
+                  "name": "id",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 0,
+                  "step": 1
+                },
+                {
+                  "label": "Fecha en Venezuela",
+                  "name": "date",
+                  "widget": "string",
+                  "required": true,
+                  "pattern": [
+                    "^\\d{4}-\\d{2}-\\d{2}$",
+                    "Usa AAAA-MM-DD."
+                  ],
+                  "hint": "Formato AAAA-MM-DD."
+                },
+                {
+                  "label": "Fecha y hora UTC",
+                  "name": "dateTime",
+                  "widget": "string",
+                  "hint": "Instante ISO completo. Ejemplo: 2026-06-23T23:00:00Z."
+                },
+                {
+                  "label": "Hora en Venezuela",
+                  "name": "time",
+                  "widget": "string",
+                  "pattern": [
+                    "^([01]\\d|2[0-3]):[0-5]\\d$",
+                    "Usa HH:MM en formato de 24 horas."
+                  ]
+                },
+                {
+                  "label": "Zona horaria",
+                  "name": "timezone",
+                  "widget": "string",
+                  "default": "America/Caracas"
+                },
+                {
+                  "label": "Temporada",
+                  "name": "season",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 2000,
+                  "step": 1
+                },
+                {
+                  "label": "Tipo de juego",
+                  "name": "gameType",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Ronda regular",
+                      "value": "R"
+                    },
+                    {
+                      "label": "Postemporada",
+                      "value": "P"
+                    },
+                    {
+                      "label": "Exhibición",
+                      "value": "C"
+                    }
+                  ]
+                },
+                {
+                  "label": "Estado de la fuente",
+                  "name": "status",
+                  "widget": "select",
+                  "options": [
+                    "Final",
+                    "Scheduled",
+                    "In Progress",
+                    "Postponed",
+                    "Cancelled"
+                  ]
+                },
+                {
+                  "label": "Estadio",
+                  "name": "stadium",
+                  "widget": "string"
+                },
+                {
+                  "label": "Boxscore oficial",
+                  "name": "boxscoreUrl",
+                  "widget": "string",
+                  "pattern": [
+                    "^https://[^\\s]+$",
+                    "Usa un enlace HTTPS completo."
+                  ]
+                },
+                {
+                  "label": "Partido histórico sin cierre reportado",
+                  "name": "isHistoricalUnresolved",
+                  "widget": "boolean",
+                  "default": false,
+                  "hint": "Actívalo para juegos pasados cuyo estado no está cerrado en la fuente; no se mostrarán como en vivo."
+                },
+                {
+                  "label": "Local",
+                  "name": "home",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "ID del equipo",
+                      "name": "id",
+                      "widget": "number",
+                      "value_type": "int",
+                      "min": 0,
+                      "step": 1
+                    },
+                    {
+                      "label": "Código",
+                      "name": "code",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Nombre de la fuente",
+                      "name": "name",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Nombre corto",
+                      "name": "shortName",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Carreras",
+                      "name": "score",
+                      "widget": "nullable-integer",
+                      "required": false,
+                      "hint": "Vacío conserva null. No escribas 0 si el juego todavía no tiene resultado."
+                    },
+                    {
+                      "label": "Nombre para mostrar",
+                      "name": "displayName",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Logotipo",
+                      "name": "logo",
+                      "widget": "image",
+                      "hint": "Sube una imagen o selecciona una existente. Se guarda una ruta /assets/… ."
+                    }
+                  ],
+                  "collapsed": true
+                },
+                {
+                  "label": "Visitante",
+                  "name": "away",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "ID del equipo",
+                      "name": "id",
+                      "widget": "number",
+                      "value_type": "int",
+                      "min": 0,
+                      "step": 1
+                    },
+                    {
+                      "label": "Código",
+                      "name": "code",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Nombre de la fuente",
+                      "name": "name",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Nombre corto",
+                      "name": "shortName",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Carreras",
+                      "name": "score",
+                      "widget": "nullable-integer",
+                      "required": false,
+                      "hint": "Vacío conserva null. No escribas 0 si el juego todavía no tiene resultado."
+                    },
+                    {
+                      "label": "Nombre para mostrar",
+                      "name": "displayName",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Logotipo",
+                      "name": "logo",
+                      "widget": "image",
+                      "hint": "Sube una imagen o selecciona una existente. Se guarda una ruta /assets/… ."
+                    }
+                  ],
+                  "collapsed": true
+                }
+              ],
+              "summary": "{{fields.date}} · {{fields.away.code}} @ {{fields.home.code}}",
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "galeria",
+      "label": "Fotos de Instagram",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "instagram",
+          "label": "Fotos de Instagram",
+          "file": "data/instagram.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Perfil oficial",
+              "name": "profile",
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Usa un enlace HTTPS completo."
+              ]
+            },
+            {
+              "label": "Fecha de consulta",
+              "name": "fetchedAt",
+              "widget": "string",
+              "hint": "Fecha ISO de la consulta a la fuente. Conserva la hora y la zona si aparecen."
+            },
+            {
+              "label": "Publicaciones",
+              "name": "assets",
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "Identificador",
+                  "name": "id",
+                  "widget": "string",
+                  "pattern": [
+                    "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "Usa minúsculas, números y guiones."
+                  ]
+                },
+                {
+                  "label": "Fecha de publicación",
+                  "name": "date",
+                  "widget": "string",
+                  "required": true,
+                  "pattern": [
+                    "^\\d{4}-\\d{2}-\\d{2}$",
+                    "Usa AAAA-MM-DD."
+                  ],
+                  "hint": "Formato AAAA-MM-DD."
+                },
+                {
+                  "label": "Publicación en Instagram",
+                  "name": "postUrl",
+                  "widget": "string",
+                  "pattern": [
+                    "^https://[^\\s]+$",
+                    "Usa un enlace HTTPS completo."
+                  ]
+                },
+                {
+                  "label": "Descripción de la imagen",
+                  "name": "alt",
+                  "widget": "string"
+                },
+                {
+                  "label": "Formato",
+                  "name": "kind",
+                  "widget": "select",
+                  "options": [
+                    "post",
+                    "reel"
+                  ]
+                },
+                {
+                  "label": "Ancho de imagen (px)",
+                  "name": "width",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 0,
+                  "step": 1
+                },
+                {
+                  "label": "Alto de imagen (px)",
+                  "name": "height",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 0,
+                  "step": 1
+                },
+                {
+                  "label": "Crédito",
+                  "name": "credit",
+                  "widget": "string"
+                },
+                {
+                  "label": "Imagen",
+                  "name": "image",
+                  "widget": "image",
+                  "hint": "Sube una imagen o selecciona una existente. Se guarda una ruta /assets/… ."
+                },
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "string"
+                }
+              ],
+              "summary": "{{fields.title}}",
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lideres",
+      "label": "Líderes del equipo",
+      "editor": {
+        "preview": false
+      },
+      "files": [
+        {
+          "name": "leaders",
+          "label": "Líderes del equipo",
+          "file": "data/leaders.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Temporada",
+              "name": "season",
+              "widget": "number",
+              "value_type": "int",
+              "min": 2000,
+              "step": 1
+            },
+            {
+              "label": "Fase o alcance",
+              "name": "scope",
+              "widget": "string"
+            },
+            {
+              "label": "ID del equipo",
+              "name": "teamId",
+              "widget": "number",
+              "value_type": "int",
+              "min": 0,
+              "step": 1
+            },
+            {
+              "label": "Fuente de estadísticas",
+              "name": "sourceUrl",
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Usa un enlace HTTPS completo."
+              ]
+            },
+            {
+              "label": "Fecha de consulta",
+              "name": "fetchedAt",
+              "widget": "string",
+              "hint": "Fecha ISO de la consulta a la fuente. Conserva la hora y la zona si aparecen."
+            },
+            {
+              "label": "Criterio de clasificación",
+              "name": "qualificationNote",
+              "widget": "text"
+            },
+            {
+              "label": "Departamentos",
+              "name": "departments",
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "Departamento",
+                  "name": "id",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Ofensiva",
+                      "value": "hitting"
+                    },
+                    {
+                      "label": "Pitcheo",
+                      "value": "pitching"
+                    }
+                  ]
+                },
+                {
+                  "label": "Título",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Categorías",
+                  "name": "leaders",
+                  "widget": "list",
+                  "fields": [
+                    {
+                      "label": "Clave de la estadística",
+                      "name": "key",
+                      "widget": "string",
+                      "hint": "Clave estable, por ejemplo avg, homeRuns, rbi, wins, strikeOuts o saves."
+                    },
+                    {
+                      "label": "Nombre de la estadística",
+                      "name": "label",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Abreviatura",
+                      "name": "abbr",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Valor visible",
+                      "name": "value",
+                      "widget": "string",
+                      "hint": "Texto para conservar formatos como .392. Escribe la cifra exactamente como debe verse."
+                    },
+                    {
+                      "label": "Líderes (incluye empates)",
+                      "name": "players",
+                      "widget": "list",
+                      "fields": [
+                        {
+                          "label": "ID oficial",
+                          "name": "id",
+                          "widget": "number",
+                          "value_type": "int",
+                          "min": 0,
+                          "step": 1
+                        },
+                        {
+                          "label": "Nombre completo",
+                          "name": "name",
+                          "widget": "string"
+                        },
+                        {
+                          "label": "Nombre para mostrar",
+                          "name": "displayName",
+                          "widget": "string"
+                        },
+                        {
+                          "label": "Perfil oficial",
+                          "name": "profileUrl",
+                          "widget": "string",
+                          "pattern": [
+                            "^https://[^\\s]+$",
+                            "Usa un enlace HTTPS completo."
+                          ]
+                        },
+                        {
+                          "label": "Retrato",
+                          "name": "photo",
+                          "widget": "image",
+                          "required": false,
+                          "hint": "Retrato opcional. Sube una foto o elige una imagen de Medios. Vacío conserva null si la fuente no tiene retrato."
+                        }
+                      ],
+                      "min": 1,
+                      "summary": "{{fields.displayName}}",
+                      "collapsed": true
+                    }
+                  ],
+                  "summary": "{{fields.label}}: {{fields.value}}",
+                  "collapsed": true
+                }
+              ],
+              "summary": "{{fields.title}}",
+              "collapsed": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
